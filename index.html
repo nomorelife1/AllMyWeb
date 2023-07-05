@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>انا فاضي مش لاقي حاجه اعملها</title>
+  <link rel="stylesheet" href="shop.css">
+  <style>
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .number {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: white; /* تغيير لون العدد إلى الأبيض */
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    /* الانميشن */
+    @keyframes animateButton {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animate-button {
+      animation: animateButton 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>انا فاضي مش لاقي حاجه اعملها</h1>
+    <div class="number" id="numberDisplay">0</div>
+    <button class="button" onclick="decreaseNumber()">تنقيص</button>
+    <button class="button" onclick="increaseNumber()">زيادة</button>
+  </div>
+
+  <script>
+    var number = 0;
+
+    function updateNumberDisplay() {
+      var numberDisplay = document.getElementById("numberDisplay");
+      numberDisplay.textContent = number;
+    }
+
+    function decreaseNumber() {
+      if (number > 0) {
+        number--;
+        updateNumberDisplay();
+        animateButton(this);
+      }
+    }
+
+    function increaseNumber() {
+      number++;
+      updateNumberDisplay();
+      animateButton(this);
+    }
+
+    function animateButton(button) {
+      button.classList.add("animate-button");
+      setTimeout(function() {
+        button.classList.remove("animate-button");
+      }, 500);
+    }
+  </script>
+</body>
+</html>
